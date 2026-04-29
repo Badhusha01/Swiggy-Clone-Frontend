@@ -1,0 +1,25 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+body{
+  user-select: none;
+}
+ 
+/* AuthPage.css */
+
+.auth-brand__title { /* Un text target class case context la */
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; /* Bold */
+  letter-spacing: -0.5px; /* Slight compact feel */
+  text-transform: uppercase; /* Optinal but classy */
+}
+
+/* AdminDashboard.css */
+
+.sidebar-brand__title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900; /* Max bold */
+  letter-spacing: -0.2px;
+}

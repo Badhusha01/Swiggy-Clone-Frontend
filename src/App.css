@@ -1,0 +1,18 @@
+/* index.css or App.css */
+:root {
+  --orange: #FF6B35;
+  --bg: #0d0d0d;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif; /* General text-ku idhu */
+  background: var(--bg);
+  color: #f0f0f0;
+}
+
+h1, h2, h3, .nav-logo {
+  font-family: 'Syne', sans-serif; /* Logo and Headings-ku idhu thaan gethu! */
+  font-weight: 800;
+}
