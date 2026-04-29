@@ -45,7 +45,7 @@ A professional **Full-Stack Food Management Application** built using the Decoup
 
 1. **Clone the repository:**
     ```bash
-   git clone [https://github.com/Badhusha01/Swiggy-Clone-Frontend.git](https://github.com/Badhusha01/Swiggy-Clone-Frontend.git)
+   git clone: [https://github.com/Badhusha01/Swiggy-Clone-Frontend.git]
    
 2. **Install Dependencies:**    
     npm install
