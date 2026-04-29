@@ -35,8 +35,8 @@ export default function AuthPage() {
       const adminUser = { name: "Administrator", role: "ADMIN", email: "admin" };
       login(adminUser);
       // LocalStorage-la set pannitta, handleJump logic-ku safety-aa irukkum
-      localStorage.setItem("user", JSON.stringify(adminUser)); 
-      
+      localStorage.setItem("user", JSON.stringify(adminUser));
+
       flash("✅ Welcome back, Admin!", "success", "login");
       setTimeout(() => navigate("/admin"), 900);
       return;
@@ -64,23 +64,23 @@ export default function AuthPage() {
   };
 
   // ─── FIX: Protected Jump Logic ──────────────────────────────────
- const handleJump = (path, label) => {
-  const activeUser = user || JSON.parse(localStorage.getItem("user"));
+  const handleJump = (path, label) => {
+    const activeUser = user || JSON.parse(localStorage.getItem("user"));
 
-  if (!activeUser) {
-    // Target-ah "login" nu kudutha, adhu login card kulla mattum thaan message kaattum
-    flash("⚠️ Authentication Required! Please Sign In first.", "error", "login");
-    return; 
-  }
+    if (!activeUser) {
+      // Target-ah "login" nu kudutha, adhu login card kulla mattum thaan message kaattum
+      flash("⚠️ Authentication Required! Please Sign In first.", "error", "login");
+      return;
+    }
 
-  if (label === "Foods") {
-    navigate("/admin", { state: { targetTab: "foods" } });
-  } else if (label === "Restaurants") {
-    navigate("/admin", { state: { targetTab: "restaurants" } });
-  } else {
-    navigate(path);
-  }
-};
+    if (label === "Foods") {
+      navigate("/admin", { state: { targetTab: "foods" } });
+    } else if (label === "Restaurants") {
+      navigate("/admin", { state: { targetTab: "restaurants" } });
+    } else {
+      navigate(path);
+    }
+  };
 
   const msgBox = (target) =>
     msg.target === target && msg.text ? (
@@ -127,33 +127,28 @@ export default function AuthPage() {
                 <label>Password</label>
                 <input type="password" placeholder="••••••••" value={loginForm.password} onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })} />
                 <button className="auth-btn-primary" onClick={handleLogin}>Sign In →</button>
-                {msgBox("login")} 
+
+                {/* 1. Login tab-la irukkumbodhu message inga varum */}
+                {msgBox("login")}
               </div>
             )}
 
             {tab === "register" && (
               <div className="auth-form">
-                <label>Full Name</label>
-                <input type="text" placeholder="John Doe" value={regForm.name} onChange={(e) => setRegForm({ ...regForm, name: e.target.value })} />
-                <label>Email</label>
-                <input type="email" placeholder="you@example.com" value={regForm.email} onChange={(e) => setRegForm({ ...regForm, email: e.target.value })} />
-                <label>Password</label>
-                <input type="password" placeholder="Min 6 chars" value={regForm.password} onChange={(e) => setRegForm({ ...regForm, password: e.target.value })} />
-                <label>Role</label>
-                <select value={regForm.role} onChange={(e) => setRegForm({ ...regForm, role: e.target.value })}>
-                  <option value="CUSTOMER">🛒 Customer</option>
-                  <option value="DELIVERY_PARTNER">🛵 Delivery Partner</option>
-                  <option value="ADMIN">🛡 Admin</option>
-                </select>
+                {/* ... unga register form fields ... */}
                 <button className="auth-btn-primary" onClick={handleRegister} disabled={loading}>{loading ? "Creating…" : "Create Account →"}</button>
+
+                {/* 2. Register tab-la irukkumbodhu message inga varum */}
+                {/* handleJump-la namma "login" target kuduthurukkoam, so register tab-layum namma "login" box-ah check pannanum */}
                 {msgBox("reg")}
+                {msgBox("login")}
               </div>
             )}
           </div>
 
           <div className="auth-jumps">
             <p>Jump to dashboard</p>
-            
+
             <div className="auth-jump-grid">
               {[
                 { emoji: "🍔", label: "Foods", path: "/admin" },
