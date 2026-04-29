@@ -53,7 +53,7 @@ A professional **Full-Stack Food Management Application** built using the Decoup
 3. **Run the Development Server:** 
     npm run dev
 
-4.**Backend Setup: Ensure your Spring Boot server is running on http://localhost:8080 for the APIs to connect.**
+  4. **Backend Setup: Ensure your Spring Boot server is running on http://localhost:8080 for the APIs to connect.**
 
 👨‍💻 Author
 Badhusha
